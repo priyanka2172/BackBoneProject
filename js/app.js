@@ -42,7 +42,7 @@
             this.collection = new Directory(contacts);
 
             this.render();
-            this.$el.find("#filter").append(this.createSelect());
+            this.$el.find("#dropDown").append(this.createSelect());
 
             this.on("change:filterType", this.filterByType, this);
             this.collection.on("reset", this.render, this);
@@ -84,13 +84,15 @@
 
         //add ui events
         events: {
-            "change #filter select": "setFilter"
+            "change #dropDown select": "setFilter"
         },
 
         //Set filter property and fire change event
         setFilter: function (e) {
             this.filterType = e.currentTarget.value;
+            console.log(e.type);
             this.trigger("change:filterType");
+
         },
 
         //filter the view
@@ -113,7 +115,7 @@
         }
     });
 
-   
+
     var ContactsRouter = Backbone.Router.extend({
         routes: {
             "filter/:type": "urlFilter"
@@ -121,6 +123,7 @@
 
         urlFilter: function (type) {
             directory.filterType = type;
+            console.log("url filter calling");
             directory.trigger("change:filterType");
         }
     });
