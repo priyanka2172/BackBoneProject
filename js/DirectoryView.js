@@ -1,17 +1,3 @@
-/**
- * Created by nisum-user on 3/25/15.
- */
-var ContactView = Backbone.View.extend({
-    tagName: "article",
-    className: "contact-container",
-    template: _.template($("#contactTemplate").html()),
-
-    render: function () {
-        this.$el.html(this.template(this.model.toJSON()));
-        return this;
-    }
-});
-
 //define master view
 var DirectoryView = Backbone.View.extend({
     el: $("#contacts"),
@@ -92,3 +78,4 @@ var DirectoryView = Backbone.View.extend({
         }
     }
 });
+
