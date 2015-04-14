@@ -6,8 +6,11 @@
 
 
 //define directory collection
-var Directory = Backbone.Collection.extend({
-    model: Contact
-});
+define(["jquery-1.7.1.min","underscore-min","backbone-min.0.5.3","contact"],function(jquery,underscore,Backbone,directory,contact) {
+    var Directory = Backbone.Collection.extend({
+        model: Contact
+    });
 
+    return Directory;
+})
 //define individual contact view
