@@ -3,8 +3,8 @@
  */
 //demo data
 
-    define(function() {
-        var contacts = [
+    define([],function() {
+       return [
             {
                 name: "Priyanka Acharya",
                 address: "39355 California Street",
@@ -48,9 +48,7 @@
                 type: "colleague"
             }
         ];
-        return{
-            contacts:contacts,
-            photo:"/img/placeholder.jpeg"
-        }
-    })
+
+    });
+
 

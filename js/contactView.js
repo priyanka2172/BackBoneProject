@@ -2,7 +2,7 @@
  * Created by nisum-user on 3/26/15.
  */
 
-define(["jquery-1.7.1.min","underscore-min","backbone-min.0.5.3","contact"],function(jquery,underscore,Backbone,contact) {
+define(["jquery","underscore","Backbone","contacts"],function($,_,Backbone,contact) {
 
 
     var ContactView = Backbone.View.extend({
@@ -19,4 +19,4 @@ define(["jquery-1.7.1.min","underscore-min","backbone-min.0.5.3","contact"],func
 
     return ContactView;
 
-})
+});

@@ -2,12 +2,13 @@
 
 
 
-define(["jquery-1.7.1.min","underscore-min","backbone-min.0.5.3","contact","contactView","contactsRouter","directory"],function(jquery,underscore,Backbone,contact,contactView,contactsRouter) {
+define(["jquery","underscore","Backbone","contacts","contactView","directory"],function($,_,Backbone,contacts,ContactView, Directory) {
 
     var DirectoryView = Backbone.View.extend({
         el: $("#contacts"),
 
-        initialize: function () {
+        initialize: function (options) {
+            this.contactsRouter = options.contactsRouter;
             this.collection = new Directory(contacts);
 
             this.render();
@@ -68,7 +69,7 @@ define(["jquery-1.7.1.min","underscore-min","backbone-min.0.5.3","contact","cont
         filterByType: function () {
             if (this.filterType === "all") {
                 this.collection.reset(contacts);
-                contactsRouter.navigate("filter/all");
+                this.contactsRouter.navigate("filter/all");
             } else {
                 this.collection.reset(contacts, {silent: true});
 
@@ -79,11 +80,11 @@ define(["jquery-1.7.1.min","underscore-min","backbone-min.0.5.3","contact","cont
 
                 this.collection.reset(filtered);
 
-                contactsRouter.navigate("filter/" + filterType);
+                this.contactsRouter.navigate("filter/" + filterType);
             }
         }
     });
 
     return DirectoryView;
 
-})
+});

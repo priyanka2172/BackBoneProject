@@ -1,11 +1,27 @@
-﻿require(["jquery-1.7.1.min","underscore-min","backbone-min.0.5.3","directory","contact","DirectoryView","ContactsRouter"],function(jquery,underscore,Backbone,directory,contact,DirectoryView,ContactsRouter) {
+﻿// set up require
+require.config({
+    shim: {
+        backbone: {
+            deps: ['underscore', 'jquery'],
+            exports: 'Backbone'
+        },
+        underscore: {
+            exports: '_'
+        }
+    }
+});
 
 
-  //create instance of master view
-        var directory = new DirectoryView();
+require(["jquery","underscore","Backbone","directoryView","contactsRouter"],
+    function($,_,Backbone,DirectoryView,ContactsRouter) {
 
         //create router instance
         var contactsRouter = new ContactsRouter();
+
+  //create instance of master view
+        var directory = new DirectoryView({contactsRouter:contactsRouter});
+
+
 
         //start history service
         Backbone.history.start();

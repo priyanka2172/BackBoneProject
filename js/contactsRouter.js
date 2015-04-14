@@ -4,7 +4,7 @@
 
 
 
-define(["jquery-1.7.1.min","underscore-min","backbone-min.0.5.3","directory","contact"],function(jquery,underscore,Backbone,directory,contact) {
+define(["jquery","underscore","Backbone","directory"],function($,_,Backbone,directory) {
     var ContactsRouter = Backbone.Router.extend({
         routes: {
             "filter/:type": "urlFilter"
@@ -18,4 +18,4 @@ define(["jquery-1.7.1.min","underscore-min","backbone-min.0.5.3","directory","co
     });
 
     return ContactsRouter;
-})
+});
